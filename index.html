@@ -24,19 +24,18 @@
             padding: 2rem;
             border-radius: 10px;
         }
-.carousel-indicators button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid var(--gold);
-    background-color: transparent;
-    opacity: 0.6;
-}
-.carousel-indicators button.active {
-    background-color: var(--gold);
-    opacity: 1;
-}
-            border-radius: 50%;
+
+        .carousel-indicators [data-bs-target] {
+            width:12px !important;
+            height:12px !important;
+            border-radius:50% !important;
+            border:2px solid var(--gold) !important;
+            background:transparent !important;
+            opacity:0.5 !important;
+        }
+        .carousel-indicators .active[data-bs-target] {
+            background:var(--gold) !important;
+            opacity:1 !important;
         }
 
         .section-padding{padding:60px 0;}
@@ -95,7 +94,7 @@
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="3"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="4"></button>
-    <button type="button" data-bs-slide-to="5"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="5"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="6"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="7"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="8"></button>
@@ -267,20 +266,3 @@ function switchLang(type){
 </script>
 </body>
 </html>
-
-## 操作步驟
-1. 打開倉庫內 index.html，點鉛筆編輯
-2. 全選刪除頁面所有舊代碼，一次性完整貼上面全部內容
-3. 滑到底點 Commit changes 提交更新
-4. 等待 GitHub Actions Pages 部署完成（約1-3分鐘）
-5. 打開網站頁面，按 `Ctrl + Shift + R` 硬清除緩存刷新
-
-## 為什麼這次一定能顯示圖
-1. 放棄相對路徑（子目錄、符號、大小寫容易404）
-2. 全部使用 raw.githubusercontent 官方圖片直鏈，直接讀取原始圖片資源
-3. 鏈路完全匹配你的倉庫：使用者/倉庫/分支/資料夾/檔名
-4. 不需要移動任何圖片，現有檔案結構不動
-
-## 測試方法（提交前驗證單張圖）
-複製任一圖鏈丟到瀏覽器新分頁，能直接打開圖片就代表鏈路有效：
-`https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑01.png`
