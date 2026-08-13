@@ -6,7 +6,6 @@
 <title>TerraSphere Janzen</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-/* 輪播外框 */
 .carousel-wrap{
   width:100%;
   max-width:1200px;
@@ -74,7 +73,6 @@
 </div>
 
 <script>
-// 圖片存放於網站根目錄，與index.html同一層
 const slideImages = [
   "imagesppt-01.png",
   "imagesppt-02.png",
@@ -100,7 +98,6 @@ const btnPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');
 let timer;
 
-// 建立圓點指示器
 slideImages.forEach((_,i)=>{
   const d = document.createElement('div');
   d.className = 'dot' + (i===0?' active':'');
@@ -130,7 +127,7 @@ function prevSlide(){
 }
 
 function startTimer(){
-  timer = setInterval(nextSlide,4000); //4秒切換
+  timer = setInterval(nextSlide,4000);
 }
 function resetTimer(){
   clearInterval(timer);
@@ -140,7 +137,6 @@ function resetTimer(){
 btnNext.onclick = ()=>{nextSlide();resetTimer();}
 btnPrev.onclick = ()=>{prevSlide();resetTimer();}
 
-// 初始化
 render();
 startTimer();
 </script>
