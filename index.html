@@ -11,18 +11,39 @@
         .navbar{background:var(--main-green);}
 
         .banner { padding: 0; margin-top: 56px; }
-        .carousel-item img {
-            height: 500px;
-            object-fit: cover;
-            width:100%;
+        /* 使用寬高比實現響應式輪播，不再寫死高度 */
+        .carousel-item {
+            aspect-ratio: 16 / 7;
         }
+        .carousel-item img {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+
         .carousel-caption {
             top: 50%;
             transform: translateY(-50%);
             bottom: initial;
             background: rgba(0,0,0,0.6);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+        }
+        /* 手機版縮小輪播標題文字 */
+        @media (max-width:767px){
+            .carousel-caption h1{
+                font-size:1.4rem;
+            }
+            .carousel-caption p.fs-5{
+                font-size:1rem;
+            }
+            .carousel-caption .btn{
+                font-size:0.9rem;
+                padding:0.4rem 0.8rem;
+            }
+            .carousel-item{
+                aspect-ratio:16 /9;
+            }
         }
 
         .carousel-indicators [data-bs-target] {
@@ -107,7 +128,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑01.png" class="d-block w-100">
+      <img src="images/imagesppt‑01.png" class="d-block w-100" loading="lazy">
       <div class="carousel-caption">
         <h1 class="fw-bold zh-text">專業環保廢舊金屬回收</h1>
         <h1 class="fw-bold en-text">Professional Waste Metal Recycling</h1>
@@ -118,7 +139,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑02.png" class="d-block w-100">
+      <img src="images/imagesppt‑02.png" class="d-block w-100" loading="lazy">
       <div class="carousel-caption">
         <h1 class="fw-bold zh-text">工業廢料處理專家</h1>
         <h1 class="fw-bold en-text">Industrial Waste Disposal Expert</h1>
@@ -129,7 +150,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑03.png" class="d-block w-100">
+      <img src="images/imagesppt‑03.png" class="d-block w-100" loading="lazy">
       <div class="carousel-caption">
         <h1 class="fw-bold zh-text">實力團隊 · 信譽保證</h1>
         <h1 class="fw-bold en-text">Professional Team · Reputation Guaranteed</h1>
@@ -139,18 +160,18 @@
         <a href="#about" class="btn btn-lg btn-warning fw-bold en-text">About Us</a>
       </div>
     </div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑04.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑05.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑06.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑07.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑08.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑09.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑10.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑11.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑12.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑13.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑14.png" class="d-block w-100"></div>
-    <div class="carousel-item"><img src="https://raw.githubusercontent.com/TerraSphere-Recycle/TerraSphere/main/images/imagesppt‑15.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑04.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑05.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑06.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑07.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑08.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑09.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑10.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑11.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑12.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑13.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑14.png" class="d-block w-100" loading="lazy"></div>
+    <div class="carousel-item"><img src="images/imagesppt‑15.png" class="d-block w-100" loading="lazy"></div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -172,32 +193,40 @@
                 <div class="p-4 bg-white rounded service-card">
                     <h5 class="zh-text">高價回收</h5>
                     <h5 class="en-text">High‑price Recycling</h5>
-                    <p class="zh-text">緊跟市場行情，價格公道不壓價</p>
-                    <p class="en-text">Follow real‑time market price, fair quotation</p>
+                    <p class="zh-text">緊跟市場行情，價格公道不壓價，給客戶最大回報收益。</p>
+                    <p class="en-text">Follow real‑time market price, offer fair and premium quotation.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="p-4 bg-white rounded service-card">
                     <h5 class="zh-text">實力團隊</h5>
                     <h5 class="en-text">Professional Team</h5>
-                    <p class="zh-text">專業分類團隊，高效快速清場</p>
-                    <p class="en-text">Skilled sorting team, efficient clearance</p>
+                    <p class="zh-text">專業分類作業團隊，經驗豐富，高效完成現場清場作業。</p>
+                    <p class="en-text">Experienced team provides fast and on-site clearance service.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="p-4 bg-white rounded service-card">
                     <h5 class="zh-text">環保處置</h5>
-                    <p class="zh-text">正規再生資源渠道，合法合規</p>
                     <h5 class="en-text">Eco‑friendly Disposal</h5>
-                    <p class="en-text">Formal recycling channel, fully compliant</p>
+                    <p class="zh-text">正規再生資源處置渠道，全程合法合規、安全環保。</p>
+                    <p class="en-text">Formal recycling channels with full compliance and safety.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="p-4 bg-white rounded service-card">
                     <h5 class="zh-text">即時結算</h5>
                     <h5 class="en-text">Prompt Payment</h5>
-                    <p class="zh-text">交易完成，即時完成款項結算</p>
-                    <p class="en-text">Settlement upon completion of transaction</p>
+                    <p class="zh-text">現場確認貨量無誤，交易完成即可結款，資金週轉靈活。</p>
+                    <p class="en-text">Settlement immediately after confirmation, flexible capital turnover.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded service-card">
+                    <h5 class="zh-text">自有物流倉儲設備</h5>
+                    <h5 class="en-text">Self-owned Logistics &amp; Storage</h5>
+                    <p class="zh-text">自有獨立存儲區與吊櫃設備，提速物流周轉、降低營運成本，提供一站式服務，無需客戶額外租賃場地。</p>
+                    <p class="en-text">Independent storage yard and lifting equipment speed up logistics, reduce costs and support one-stop service with no extra rental fee.</p>
                 </div>
             </div>
         </div>
@@ -213,13 +242,13 @@
             <div class="col-md-3 service-card p-3 border rounded zh-text">廢銅、紅銅、黃銅</div>
             <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Copper, Brass</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">廢鋁、鋁材、鋁合金</div>
-            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Aluminum & Alloy</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Aluminum &amp; Alloy</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">廢鐵、工業生鐵</div>
-            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Iron & Steel</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Iron &amp; Steel</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">不鏽鋼各類料</div>
             <div class="col-md-3 service-card p-3 border rounded en-text">Stainless Steel</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">電線電纜回收</div>
-            <div class="col-md-3 service-card p-3 border rounded en-text">Waste Cable & Wire</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Waste Cable &amp; Wire</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">機械設備廢料</div>
             <div class="col-md-3 service-card p-3 border rounded en-text">Machinery Scrap</div>
             <div class="col-md-3 service-card p-3 border rounded zh-text">工廠庫存舊料</div>
