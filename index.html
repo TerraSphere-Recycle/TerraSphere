@@ -210,6 +210,27 @@
     </div>
 </section>
 
+<!-- ========== 新增：關於我們 下拉圖片區塊 ========== -->
+<section id="about" class="section-padding">
+    <div class="container">
+        <h2 class="text-center zh-text">關於我們</h2>
+        <h2 class="text-center en-text">About Us</h2>
+        <div class="title-line"></div>
+
+        <button id="about-img-toggle" style="width:100%;padding:14px;font-size:18px;background:#106b38;color:white;border:none;border-radius:8px;cursor:pointer;margin:20px 0;">
+            <span class="zh-text">▼ 點擊查看企業圖片</span>
+            <span class="en-text">▼ View company photos</span>
+        </button>
+
+        <div id="about-img-wrap" style="display:none;flex-direction:column;gap:16px;">
+            <img src="images/imagesppt‑05.png" alt="About‑05" style="width:100%;border-radius:6px;">
+            <img src="images/imagesppt‑08.png" alt="About‑08" style="width:100%;border-radius:6px;">
+            <img src="images/imagesppt‑11.png" alt="About‑11" style="width:100%;border-radius:6px;">
+            <img src="images/imagesppt‑13.png" alt="About‑13" style="width:100%;border-radius:6px;">
+        </div>
+    </div>
+</section>
+
 <section id="business" class="section-padding">
     <div class="container text-center">
         <h2 class="zh-text">主力回收種類</h2>
@@ -242,7 +263,7 @@
         <h2 class="en-text">Contact Us | Enquiry Latest Price</h2>
         <div class="title-line"></div>
         <p class="fs-5 mt-4">Phone / Tel：+852 9166 7683</p>
-        <p class="fs-5 mt-2">Email：terrasphere.imfo@gmail.com</p>
+        <p class="fs-5 mt-2">Email：terrasphere.janzen@gmail.com</p>
         <p class="zh-text mt-3">營業地址：香港新界屯門龍鼓灘稔灣徑DD134, LOT385A1RP - 396ARP</p>
         <p class="en-text mt-3">Address: DD134, LOT385A1RP‑396ARP, NIM WAN PATH, LUNG KWU TAN, TUEN MUN, NT, HONG KONG</p>
     </div>
@@ -269,6 +290,24 @@ function switchLang(type){
         enDom.forEach(el=>el.style.display='block');
     }
 }
+
+// 關於我們下拉圖片邏輯
+const toggleBtn = document.getElementById('about-img-toggle');
+const imgWrap = document.getElementById('about-img-wrap');
+let isShow = false;
+
+toggleBtn.addEventListener('click', ()=>{
+  isShow = !isShow;
+  if(isShow){
+    imgWrap.style.display = 'flex';
+    toggleBtn.querySelector('.zh-text').textContent = '▲ 點擊收起企業圖片';
+    toggleBtn.querySelector('.en-text').textContent = '▲ Hide company photos';
+  }else{
+    imgWrap.style.display = 'none';
+    toggleBtn.querySelector('.zh-text').textContent = '▼ 點擊查看企業圖片';
+    toggleBtn.querySelector('.en-text').textContent = '▼ View company photos';
+  }
+})
 </script>
 </body>
 </html>
