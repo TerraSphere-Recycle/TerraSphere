@@ -1,144 +1,265 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TerraSphere Janzen</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-.carousel-wrap{
-  width:100%;
-  max-width:1200px;
-  height:480px;
-  margin:20px auto;
-  overflow:hidden;
-  position:relative;
-}
-.carousel-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.4);
-  color:#fff;
-  border:none;
-  font-size:28px;
-  padding:8px 14px;
-  cursor:pointer;
-  z-index:10;
-}
-.prev{left:10px;}
-.next{right:10px;}
-.dots{
-  position:absolute;
-  bottom:12px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:8px;
-}
-.dot{
-  width:12px;height:12px;
-  border-radius:50%;
-  background:#ffffff77;
-  cursor:pointer;
-}
-.dot.active{background:#fff;}
-.contact-area{
-  max-width:1200px;
-  margin:40px auto;
-  padding:0 20px;
-  font-size:17px;
-  line-height:1.8;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弘昌環保國際有限公司 | Waste Metal Recycling</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root{--main-green:#0F5F40;--gold:#D4AF37;--dark:#1A1A1A;}
+        body{font-family:"微軟正黑體",sans-serif;color:#333;}
+        .navbar{background:var(--main-green);}
+
+        /* 輪播樣式 */
+        .banner { padding: 0; margin-top: 56px; }
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: initial;
+            background: rgba(0,0,0,0.6);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        /* 縮小底部圓點，15個不會擠 */
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .section-padding{padding:60px 0;}
+        .title-line{width:80px;height:3px;background:var(--gold);margin:15px auto;}
+        .service-card:hover{box-shadow:0 5px 15px #ccc;transition:0.3s;}
+        footer{background:#222;color:#fff;padding:40px 0;}
+        .en-text{display: none;}
+        .zh-text{display: block;}
+        .lang-btn{
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        .lang-btn:hover{
+            background: #fff;
+            color: var(--main-green);
+        }
+    </style>
 </head>
 <body>
 
-<div class="carousel-wrap">
-  <img id="slideImg" class="carousel-img" alt="輪播圖">
-  <button class="arrow prev" id="btnPrev">&lt;</button>
-  <button class="arrow next" id="btnNext">&gt;</button>
-  <div class="dots" id="dotBox"></div>
-</div>
+<!-- 導航欄 -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <span class="zh-text">弘昌環保國際有限公司</span>
+            <span class="en-text">TerraSphere Recycling International Limited</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="#"><span class="zh-text">首頁</span><span class="en-text">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#about"><span class="zh-text">關於我們</span><span class="en-text">About Us</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#business"><span class="zh-text">回收業務</span><span class="en-text">Recycling Business</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#price"><span class="zh-text">行情價格</span><span class="en-text">Market Price</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#flow"><span class="zh-text">服務流程</span><span class="en-text">Service Process</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact"><span class="zh-text">聯繫我們</span><span class="en-text">Contact Us</span></a></li>
+                <li class="nav-item">
+                    <span class="lang-btn" onclick="switchLang('zh')">CN</span>
+                    <span class="lang-btn" onclick="switchLang('en')">EN</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<div class="contact-area">
-  <h3>聯絡我們</h3>
-  <p>電話：<a href="tel:+85291667683">+852 9166 7683</a></p>
-  <p>Email：<a href="mailto:terrasphere.janzen@gmail.com">terrasphere.janzen@gmail.com</a></p>
-</div>
+<!-- 15張PNG輪播 -->
+<section id="carousel" class="carousel slide banner" data-bs-ride="carousel" data-bs-interval="4000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="3"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="4"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="5"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="6"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="7"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="8"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="9"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="10"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="11"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="12"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="13"></button>
+    <button type="button" data-bs-target="#carousel" data-bs-slide-to="14"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/ppt-01.png" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1 class="fw-bold zh-text">專業環保廢舊金屬回收</h1>
+        <h1 class="fw-bold en-text">Professional Waste Metal Recycling</h1>
+        <p class="fs-5 my-3 zh-text">誠信經營 · 高價收購 · 即時結款</p>
+        <p class="fs-5 my-3 en-text">High Price Purchase, Prompt Settlement</p>
+        <a href="#contact" class="btn btn-lg btn-warning fw-bold zh-text">聯繫我們</a>
+        <a href="#contact" class="btn btn-lg btn-warning fw-bold en-text">Contact Us</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/ppt-02.png" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1 class="fw-bold zh-text">工業廢料處理專家</h1>
+        <h1 class="fw-bold en-text">Industrial Waste Disposal Expert</h1>
+        <p class="fs-5 my-3 zh-text">全港服務，高效環保，變廢為寶</p>
+        <p class="fs-5 my-3 en-text">Efficient, Eco‑friendly, Turn Waste Into Treasure</p>
+        <a href="#business" class="btn btn-lg btn-warning fw-bold zh-text">了解回收業務</a>
+        <a href="#business" class="btn btn-lg btn-warning fw-bold en-text">View Recycling Business</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/ppt-03.png" class="d-block w-100">
+      <div class="carousel-caption">
+        <h1 class="fw-bold zh-text">實力團隊 · 信譽保證</h1>
+        <h1 class="fw-bold en-text">Professional Team · Reputation Guaranteed</h1>
+        <p class="fs-5 my-3 zh-text">十年行業經驗，值得信賴的環保合作夥伴</p>
+        <p class="fs-5 my-3 en-text">10+ Years Experience, Trusted Environmental Partner</p>
+        <a href="#about" class="btn btn-lg btn-warning fw-bold zh-text">關於我們</a>
+        <a href="#about" class="btn btn-lg btn-warning fw-bold en-text">About Us</a>
+      </div>
+    </div>
+    <div class="carousel-item"><img src="images/ppt-04.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-05.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-06.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-07.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-08.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-09.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-10.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-11.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-12.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-13.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-14.png" class="d-block w-100"></div>
+    <div class="carousel-item"><img src="images/ppt-15.png" class="d-block w-100"></div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</section>
 
+<!-- 服務優勢 -->
+<section class="section-padding bg-light">
+    <div class="container text-center">
+        <h2 class="zh-text">我們優勢</h2>
+        <h2 class="en-text">Our Advantages</h2>
+        <div class="title-line"></div>
+        <div class="row mt-5 g-4">
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded">
+                    <h5 class="zh-text">高價回收</h5>
+                    <h5 class="en-text">High Price</h5>
+                    <p class="zh-text">緊跟市場行情，價格公道不壓價</p>
+                    <p class="en-text">Follow real market price</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded">
+                    <h5 class="zh-text">實力團隊</h5>
+                    <h5 class="en-text">Professional Team</h5>
+                    <p class="zh-text">專業分類團隊，高效快速清場</p>
+                    <p class="en-text">Efficient cleaning service</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded">
+                    <h5 class="zh-text">環保處置</h5>
+                    <h5 class="en-text">Eco‑friendly Disposal</h5>
+                    <p class="zh-text">正規再生資源渠道，合法合規</p>
+                    <p class="en-text">Formal recycling channel</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-4 bg-white rounded">
+                    <h5 class="zh-text">即時結算</h5>
+                    <h5 class="en-text">Prompt Payment</h5>
+                    <p class="zh-text">交易完成，即時完成款項結算</p>
+                    <p class="en-text">Settlement upon completion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 回收業務 -->
+<section id="business" class="section-padding">
+    <div class="container text-center">
+        <h2 class="zh-text">主力回收種類</h2>
+        <h2 class="en-text">Recyclable Materials</h2>
+        <div class="title-line"></div>
+        <div class="row mt-5 g-3">
+            <div class="col-md-3 service-card p-3 border rounded zh-text">廢銅、紅銅、黃銅</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Copper, Brass</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">廢鋁、鋁材、鋁合金</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Aluminum</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">廢鐵、工業生鐵</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Scrap Iron & Steel</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">不鏽鋼各類料</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Stainless Steel</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">電線電纜回收</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Waste Cable & Wire</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">機械設備廢料</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Waste Machinery</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">工廠庫存舊料</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Factory Stock Scrap</div>
+            <div class="col-md-3 service-card p-3 border rounded zh-text">建築廢舊金屬</div>
+            <div class="col-md-3 service-card p-3 border rounded en-text">Construction Scrap Metal</div>
+        </div>
+    </div>
+</section>
+
+<!-- 聯繫（更新Email、移除上門回收相關描述） -->
+<section id="contact" class="section-padding bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="zh-text">聯繫我們 | 查詢最新價格</h2>
+        <h2 class="en-text">Contact Us & Inquiry Price</h2>
+        <div class="title-line"></div>
+        <p class="fs-5 mt-4">Phone / Tel：+852 9166 7683</p>
+        <p class="fs-5 mt-2">Email：terrasphere.janzen@gmail.com</p>
+        <p class="zh-text mt-3">營業地址：香港新界屯門龍鼓灘稔灣徑DD134, LOT385A1RP - 396ARP</p>
+        <p class="en-text">Address: DD134, LOT385A1RP - 396ARP, NIM WAN PATH,LUNG KWU TAN, TUEN MUN, N.T. HONG KONG</p>
+    </div>
+</section>
+
+<!-- 頁腳 -->
+<footer class="text-center">
+    <div class="container">
+        <p class="zh-text">©2026 弘昌環保國際有限公司 版權所有 | 專注再生資源環保產業</p>
+        <p class="en-text">©2026 TerraSphere Recycling International Limited All Rights Reserved</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const slideImages = [
-  "imagesppt-01.png",
-  "imagesppt-02.png",
-  "imagesppt-03.png",
-  "imagesppt-04.png",
-  "imagesppt-05.png",
-  "imagesppt-06.png",
-  "imagesppt-07.png",
-  "imagesppt-08.png",
-  "imagesppt-09.png",
-  "imagesppt-10.png",
-  "imagesppt-11.png",
-  "imagesppt-12.png",
-  "imagesppt-13.png",
-  "imagesppt-14.png",
-  "imagesppt-15.png"
-];
-
-let currentIndex = 0;
-const slideImg = document.getElementById('slideImg');
-const dotBox = document.getElementById('dotBox');
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
-let timer;
-
-slideImages.forEach((_,i)=>{
-  const d = document.createElement('div');
-  d.className = 'dot' + (i===0?' active':'');
-  d.onclick = ()=>goSlide(i);
-  dotBox.appendChild(d);
-})
-const dots = document.querySelectorAll('.dot');
-
-function render(){
-  slideImg.src = slideImages[currentIndex];
-  dots.forEach((d,i)=> d.classList.toggle('active',i===currentIndex));
+function switchLang(type){
+    let zh = document.querySelectorAll('.zh-text');
+    let en = document.querySelectorAll('.en-text');
+    if(type === 'zh'){
+        zh.forEach(item=>item.style.display='block');
+        en.forEach(item=>item.style.display='none');
+        document.documentElement.lang = 'zh-HK';
+    }else{
+        zh.forEach(item=>item.style.display='none');
+        en.forEach(item=>item.style.display='block');
+        document.documentElement.lang = 'en';
+    }
 }
-
-function goSlide(idx){
-  currentIndex = idx;
-  render();
-  resetTimer();
-}
-
-function nextSlide(){
-  currentIndex = (currentIndex+1) % slideImages.length;
-  render();
-}
-function prevSlide(){
-  currentIndex = (currentIndex-1 + slideImages.length) % slideImages.length;
-  render();
-}
-
-function startTimer(){
-  timer = setInterval(nextSlide,4000);
-}
-function resetTimer(){
-  clearInterval(timer);
-  startTimer();
-}
-
-btnNext.onclick = ()=>{nextSlide();resetTimer();}
-btnPrev.onclick = ()=>{prevSlide();resetTimer();}
-
-render();
-startTimer();
 </script>
 </body>
 </html>
