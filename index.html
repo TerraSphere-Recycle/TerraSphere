@@ -85,6 +85,55 @@ font-size:1.1rem;
 color:#222;
 box-shadow:0 2px 6px rgba(0,0,0,0.06);
 }
+/* ===== 回收卡片可點擊彈窗 ===== */
+.recycle-card{
+cursor:pointer;
+transition:all .3s ease;
+}
+.recycle-card:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 18px rgba(0,0,0,0.14)!important;
+border-color:var(--main-green)!important;
+}
+.recycle-card .view-hint{
+display:block;
+margin-top:6px;
+font-size:.82rem;
+color:var(--main-green);
+font-weight:600;
+}
+/* 彈窗內圖片輪播樣式 */
+#recycleModal .modal-body{padding:12px;}
+#recycleModal .carousel-item img{
+width:100%;
+max-height:72vh;
+object-fit:contain;
+background:#f2f2f2;
+border-radius:6px;
+}
+#recycleModal .carousel-control-prev-icon,
+#recycleModal .carousel-control-next-icon{
+background-color:rgba(15,95,64,.75);
+border-radius:50%;
+padding:18px;
+background-size:55% 55%;
+background-position:center;
+background-repeat:no-repeat;
+}
+#recycleModal .carousel-indicators{
+position:static;
+margin:12px 0 0;
+}
+#recycleModal .carousel-indicators [data-bs-target]{
+width:10px!important;
+height:10px!important;
+border:none!important;
+background:rgba(15,95,64,.35)!important;
+opacity:1!important;
+}
+#recycleModal .carousel-indicators .active{
+background:var(--gold)!important;
+}
 footer{background:#222;color:#fff;padding:40px 0;}
 .en-text{display: none;}
 .zh-text{display: block;}
@@ -318,25 +367,114 @@ data-en="images/imagesppt-15-en.png">
 <h2 class="en-text">Recyclable Materials</h2>
 <div class="title-line"></div>
 <div class="row mt-5 g-3">
-<div class="col-md-3 service-card p-3 border rounded zh-text">廢銅、紅銅、黃銅</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Scrap Copper, Brass</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">廢鋁、鋁材、鋁合金</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Scrap Aluminum &amp; Alloy</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">廢鐵、工業生鐵</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Scrap Iron &amp; Steel</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">不鏽鋼各類料</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Stainless Steel</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">電線電纜回收</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Waste Cable &amp; Wire</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">機械設備廢料</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Machinery Scrap</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">工廠庫存舊料</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Obsolete Factory Stock</div>
-<div class="col-md-3 service-card p-3 border rounded zh-text">建築廢舊金屬</div>
-<div class="col-md-3 service-card p-3 border rounded en-text">Construction Metal Scrap</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="廢銅、紅銅、黃銅回收例圖"
+data-title-en="Scrap Copper &amp; Brass Examples"
+data-imgs='["images/copper-1.png","images/copper-2.png","images/copper-3.png"]'>
+<span class="zh-text">廢銅、紅銅、黃銅</span>
+<span class="en-text">Scrap Copper, Brass</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="廢鋁、鋁材、鋁合金回收例圖"
+data-title-en="Scrap Aluminum &amp; Alloy Examples"
+data-imgs='["images/aluminum-1.png","images/aluminum-2.png","images/aluminum-3.png"]'>
+<span class="zh-text">廢鋁、鋁材、鋁合金</span>
+<span class="en-text">Scrap Aluminum &amp; Alloy</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="廢鐵、工業生鐵回收例圖"
+data-title-en="Scrap Iron &amp; Steel Examples"
+data-imgs='["images/iron-1.png","images/iron-2.png","images/iron-3.png"]'>
+<span class="zh-text">廢鐵、工業生鐵</span>
+<span class="en-text">Scrap Iron &amp; Steel</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="不鏽鋼各類料回收例圖"
+data-title-en="Stainless Steel Examples"
+data-imgs='["images/stainless-steel-1.png","images/stainless-steel-2.png","images/stainless-steel-3.png"]'>
+<span class="zh-text">不鏽鋼各類料</span>
+<span class="en-text">Stainless Steel</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="電線電纜回收例圖"
+data-title-en="Waste Cable &amp; Wire Examples"
+data-imgs='["images/wire-and-cable-1.png","images/wire-and-cable-2.png","images/wire-and-cable-3.png"]'>
+<span class="zh-text">電線電纜回收</span>
+<span class="en-text">Waste Cable &amp; Wire</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="機械設備廢料回收例圖"
+data-title-en="Machinery Scrap Examples"
+data-imgs='["images/Machinery-Scrap-1.png","images/Machinery-Scrap-2.png"]'>
+<span class="zh-text">機械設備廢料</span>
+<span class="en-text">Machinery Scrap</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="工廠庫存舊料回收例圖"
+data-title-en="Obsolete Factory Stock Examples"
+data-imgs='["images/Obsolete-Factory-Stock-1.png","images/Obsolete-Factory-Stock-2.png","images/Obsolete-Factory-Stock-3.png"]'>
+<span class="zh-text">工廠庫存舊料</span>
+<span class="en-text">Obsolete Factory Stock</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
+<div class="col-md-3">
+<div class="service-card p-3 border rounded recycle-card"
+data-title-zh="建築廢舊金屬回收例圖"
+data-title-en="Construction Metal Scrap Examples"
+data-imgs='["images/Construction-Metal-Scrap-1.png","images/Construction-Metal-Scrap-2.png","images/Construction-Metal-Scrap-3.png"]'>
+<span class="zh-text">建築廢舊金屬</span>
+<span class="en-text">Construction Metal Scrap</span>
+<span class="view-hint"><span class="zh-text">點擊查看例圖 ›</span><span class="en-text">Click to view photos ›</span></span>
+</div>
+</div>
 </div>
 </div>
 </section>
+<!-- ===== 回收例圖彈窗 ===== -->
+<div class="modal fade" id="recycleModal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title zh-text" id="recycleModalTitleZh"></h5>
+<h5 class="modal-title en-text" id="recycleModalTitleEn"></h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<div id="recycleCarousel" class="carousel slide" data-bs-interval="false">
+<div class="carousel-inner" id="recycleCarouselInner"></div>
+<button class="carousel-control-prev" type="button" data-bs-target="#recycleCarousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#recycleCarousel" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 <section id="contact" class="section-padding bg-dark text-white">
 <div class="container text-center">
 <h2 class="zh-text">聯繫我們 | 查詢最新價格</h2>
@@ -399,6 +537,28 @@ toggleBtn.querySelector('.zh-text').textContent = '▼ 點擊查看企業圖片'
 toggleBtn.querySelector('.en-text').textContent = '▼ View company photos';
 }
 })
+
+// 回收卡片點擊彈出例圖
+const recycleModalEl = document.getElementById('recycleModal');
+const recycleModal = new bootstrap.Modal(recycleModalEl);
+const recycleCarouselInner = document.getElementById('recycleCarouselInner');
+const recycleTitleZh = document.getElementById('recycleModalTitleZh');
+const recycleTitleEn = document.getElementById('recycleModalTitleEn');
+
+document.querySelectorAll('.recycle-card').forEach(card=>{
+card.addEventListener('click', ()=>{
+const imgs = JSON.parse(card.dataset.imgs);
+recycleTitleZh.textContent = card.dataset.titleZh;
+recycleTitleEn.textContent = card.dataset.titleEn;
+recycleCarouselInner.innerHTML = imgs.map((src,i)=>
+'<div class="carousel-item'+(i===0?' active':'')+'"><img src="'+src+'" class="d-block w-100" alt="'+(currentLang==='zh'?card.dataset.titleZh:card.dataset.titleEn)+' '+(i+1)+'"></div>'
+).join('');
+recycleModal.show();
+});
+});
+recycleModalEl.addEventListener('hidden.bs.modal', ()=>{
+recycleCarouselInner.innerHTML = '';
+});
 </script>
 </body>
 </html>
